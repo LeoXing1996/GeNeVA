@@ -218,8 +218,8 @@ def validate(valid_loader, model, criterion,
                       'Precision {prec.val:.3f} ({prec.avg:.3f})\t'
                       'Recall {rec.val:.3f} ({rec.avg:.3f})\t'
                       'F1 Score {f1.val:.3f} ({f1.avg:.3f})'.format(
-                       i, len(valid_loader), detection_loss=detect_losses,
-                       localization_loss=local_losses, prec=precision, rec=recall, f1=f1))
+                          i, len(valid_loader), detection_loss=detect_losses,
+                          localization_loss=local_losses, prec=precision, rec=recall, f1=f1))
         print(' * Precision {prec.avg:.3f}\tRecall {rec.avg:.3f}\tF1 Score {f1.avg:.3f}'
               .format(prec=precision, rec=recall, f1=f1))
 
@@ -284,8 +284,8 @@ def train_model(train_loader, model, criterion, optimizer, epoch,
                   'Precision {prec.val:.3f} ({prec.avg:.3f})\t'
                   'Recall {rec.val:.3f} ({rec.avg:.3f})\t'
                   'F1 Score {f1.val:.3f} ({f1.avg:.3f})'.format(
-                   epoch, i, len(train_loader), detection_loss=detect_losses,
-                   localization_loss=local_losses, prec=precision, rec=recall, f1=f1))
+                      epoch, i, len(train_loader), detection_loss=detect_losses,
+                      localization_loss=local_losses, prec=precision, rec=recall, f1=f1))
 
     dataset_targets = np.array(dataset_targets)
     dataset_detections = np.array(dataset_detections)
@@ -312,7 +312,7 @@ class CoDrawSingleAllDataset(torch.utils.data.Dataset):
             obj_key_name = 'codraw_objects'
             bg_key_name = 'codraw_background'
         with open(keys[obj_key_name], 'r') as f:
-            self.objects = np.array([l.strip() for l in f])
+            self.objects = np.array([l_.strip() for l_ in f])
         self.transform = transform
         self.noise_fraction = noise_fraction
         self.bg_fraction_noise = bg_fraction_noise
